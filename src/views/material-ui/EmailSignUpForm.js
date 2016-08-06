@@ -58,6 +58,24 @@ class EmailSignUpForm extends React.Component {
             style={{clear: "both", overflow: "hidden"}}
             onSubmit={this.handleSubmit.bind(this)}>
         <Input type="text"
+               floatingLabelText="Full name"
+               className="email-sign-up-email"
+               disabled={disabled}
+               value={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "form", "fullname"])}
+               errors={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "errors", "fullname"])}
+               onChange={this.handleInput.bind(this, "fullname")}
+               {...this.props.inputProps.fullname} />
+
+        <Input type="text"
+               floatingLabelText="Your url"
+               className="email-sign-up-email"
+               disabled={disabled}
+               value={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "form", "url"])}
+               errors={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "errors", "url"])}
+               onChange={this.handleInput.bind(this, "url")}
+               {...this.props.inputProps.url} />
+
+        <Input type="text"
                floatingLabelText="Email"
                className="email-sign-up-email"
                disabled={disabled}
